@@ -167,7 +167,10 @@ def parse_module(module, inputs, param_exclude=".*AuxLogits.*", param_include=No
         trace_graph = torch.onnx._optimize_trace(trace, torch.onnx.OperatorExportTypes.ONNX)
 
     logger.debug('trace_graph: {}'.format(trace_graph))
-
+    
+    print(trace)
+    print(trace_graph)
+    
     if int(os.environ.get('AUTOLIRPA_DEBUG_GRAPH', 0)) > 0:
         print("Graph before ONNX convertion:")
         print(trace)
